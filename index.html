@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>JS Shop</title>
+</head>
+<body>
+    <header class="navigation">
+        <nav class="d-flex justify-content-between container">
+            <div>
+                <h1><a href="#">LOGO</a></h1>
+            </div>
+            <ul class="d-flex align-items-center navigation__items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li class="position-relative navigation__items__has-child">
+                    <a href="#">Categories</a>
+                    <ul class="d-flex flex-column position-absolute top-100 navigation__items__has-child__child-menu">
+                        <li><a href="#">PhonesAndTablets</a></li>
+                        <li><a href="#">Phones with length</a></li>
+                        <li><a href="#">Phones</a></li>
+                        <li><a href="#">Phones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="col-12 page-title d-flex justify-content-between align-items-center">
+            <h2>Shop</h2>
+            <form action="#" class="d-none d-lg-block">
+                <label for="#">Sort: &nbsp;</label>
+                <select id="select-sorting">
+                    <option value="test" disabled selected>Choose</option>
+                    <option value="price">Price ASC</option>
+                    <option value="price">Price DESC</option>
+                    <option value="rating">Rating</option>
+
+                </select>
+            </form>
+        </div>
+        <div class="row">
+            <aside class="d-none d-lg-block col-lg-3 sidebar">
+                <h3>Categories</h3>
+                <ul class="p-2 sidebar__category-list">
+                    <li class="p-1 text-capitalize"><a href="#">Show All</a></li>
+                </ul>
+            </aside>
+
+            <div class="col-12 col-lg-9 products">
+                <div class="products__row">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="dist/js/main.bundle.js"></script>
+</body>
+</html>

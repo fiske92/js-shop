@@ -1,0 +1,75 @@
+main {
+    .products {
+        &__row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            @media (max-width: 1199.99px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 575.99px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            &__single-product {
+                margin-bottom: 1rem;
+                overflow: hidden;
+                background-color: #fff;
+    
+                & > a {
+                    position: relative;
+                    overflow: hidden;
+
+                    &::after {
+                        content: attr(data-discount);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: #ffca2d;
+                        /* padding: 16px; */
+                        transform: scale(2) rotate(-45deg) translateY(-31px);
+                        width: 60px;
+                        display: flex;
+                        height: 60px;
+                        align-items: end;
+                        font-size: 8px;
+                        justify-content: center;
+                    }
+
+                    & > img {
+                        width: 100%;
+                        height: $product-image-height;
+                        object-fit: cover;
+                    }
+                } 
+    
+                &__info {
+                    margin: 10px 0;
+    
+                    h4 {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+
+                        @media (min-width: 576px) {
+                            height: 57px;
+                        }
+                    }
+    
+                    .cart {
+                        background-color: $yellow;
+                        padding: 10px;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}

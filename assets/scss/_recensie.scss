@@ -1,0 +1,20 @@
+.products__row__single-product__info__recensie {
+    .stars {
+        position: relative;
+        white-space: nowrap;
+        svg {
+            width: 15px;
+            fill: $yellow;
+        }
+    }
+    
+    .cover {
+        background: white;
+        height: 100%;
+        overflow: hidden;
+        mix-blend-mode: color;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

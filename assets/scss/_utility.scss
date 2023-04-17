@@ -1,0 +1,18 @@
+.page-title {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 20px;
+    padding: 0;
+
+    h2 {
+        padding: 15px 0;
+    }
+
+    select {
+        background-color: rgba(0,0,0,.05);
+        padding: 7px;
+        border-radius: 5px;
+        border: 0;
+        border-right: 5px solid transparent;
+        outline: none;
+    }
+}
