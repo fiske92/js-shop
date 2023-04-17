@@ -1,7 +1,6 @@
 class RenderProducts {
-    constructor(products) {
+    constructor() {
         this.productsContainer = document.querySelector('.products > .products__row');
-        products = 'test'
     }
 
     async getProducts(url) {
@@ -52,7 +51,7 @@ class RenderProducts {
 
     calculateRating(rating) {
         let ratingPercent = (100 / 20) * rating;
-        return 100 - ratingPercent
+        return 100 - ratingPercent;
     }
 
     showDiscountPrice(price, discount) {

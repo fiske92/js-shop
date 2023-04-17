@@ -2,16 +2,16 @@ const RenderProducts = require('./RenderProducts');
 const renderProducts = new RenderProducts();
 
 class CategoriesList {
-    constructor() {
+    constructor(url) {
         this.categoriesList = document.querySelector('.sidebar__category-list');
-        this.API_URL = 'https://dummyjson.com';
+        this.API_URL = url;
     }
 
     async getCategories(url) {
         const res = await fetch(url);
         const categories = await res.json();
         
-        categories.forEach(category => this.createListItem(category))
+        categories.forEach(category => this.createListItem(category));
     }
 
     createListItem(category) {
@@ -19,7 +19,7 @@ class CategoriesList {
         const listItem = document.createElement('li');
 
         link.setAttribute('href', `${this.API_URL}/products/category/${category}`);
-        link.innerHTML = category
+        link.innerHTML = category;
         link.addEventListener('click', e => {
             e.preventDefault();
             renderProducts.getProducts(`${this.API_URL}/products/category/${category}`);
