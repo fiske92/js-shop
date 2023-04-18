@@ -9409,6 +9409,8 @@ main .products__row {
         display: flex;
         justify-content: center;
         align-items: center; }
+      main .products__row__single-product__info .stars {
+        width: fit-content; }
 
 .products__row__single-product__info__recensie .stars {
   position: relative;

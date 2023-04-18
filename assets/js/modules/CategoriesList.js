@@ -1,16 +1,16 @@
+const Abstract = require('./Abstract')
 const RenderProducts = require('./RenderProducts');
 const renderProducts = new RenderProducts();
 
-class CategoriesList {
+class CategoriesList extends Abstract {
     constructor(url) {
+        super();
         this.categoriesList = document.querySelector('.sidebar__category-list');
         this.API_URL = url;
     }
 
     async getCategories(url) {
-        const res = await fetch(url);
-        const categories = await res.json();
-        
+        const categories = await this.getProducts(url) 
         categories.forEach(category => this.createListItem(category));
     }
 
@@ -22,7 +22,10 @@ class CategoriesList {
         link.innerHTML = category;
         link.addEventListener('click', e => {
             e.preventDefault();
-            renderProducts.getProducts(`${this.API_URL}/products/category/${category}`);
+            renderProducts.renderProducts(`${this.API_URL}/products/category/${category}`);
+            
+            const select = document.querySelector('#select-sorting');
+            select.selectedIndex = 0
         });
         
         listItem.className = 'p-1 text-capitalize';
