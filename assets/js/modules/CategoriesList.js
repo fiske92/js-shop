@@ -7,10 +7,15 @@ class CategoriesList extends Abstract {
         super();
         this.categoriesList = document.querySelector('.sidebar__category-list');
         this.API_URL = url;
+        this.showAllProducts = document.querySelector('#show-all-products');
+        this.showAllProducts.addEventListener('click', e => {
+            e.preventDefault();
+            renderProducts.renderProducts(`${this.API_URL}/products`);
+        });
     }
 
     async getCategories(url) {
-        const categories = await this.getProducts(url) 
+        const categories = await this.getData(url)
         categories.forEach(category => this.createListItem(category));
     }
 
@@ -23,11 +28,11 @@ class CategoriesList extends Abstract {
         link.addEventListener('click', e => {
             e.preventDefault();
             renderProducts.renderProducts(`${this.API_URL}/products/category/${category}`);
-            
+
             const select = document.querySelector('#select-sorting');
             select.selectedIndex = 0
         });
-        
+
         listItem.className = 'p-1 text-capitalize';
         listItem.append(link);
 

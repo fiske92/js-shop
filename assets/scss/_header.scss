@@ -31,12 +31,24 @@
                     transition: .3s all;
                 }
 
-                &:hover::after {
+                &:not(.navigation__items__has-child):hover::after {
                     width: 100%;
                 }
             }
 
-            &__has-child {            
+            &__has-child {   
+                display: flex;
+                align-items: center;
+
+                &::after {
+                content: '';
+                width: 16px;
+                height: 16px;
+                margin-left: 5px;
+                background: url('../../assets/img/arrow.svg') no-repeat center center;
+                display: inline-block;
+                }
+
                 ul {
                     height: 0;
                     width: fit-content;
@@ -49,7 +61,7 @@
                     z-index: 10;
             
                     li {
-                        padding: 10px;
+                        padding: 10px 20px;
                         
                         &:not(:last-child) {
                             border-bottom: 1px solid $yellow;
@@ -59,7 +71,7 @@
 
                 &:hover {
                     ul {
-                        height: 210px;
+                        height: var(--tooltip-height);
                         border: 1px solid $yellow;
                         opacity: 1;
                     }

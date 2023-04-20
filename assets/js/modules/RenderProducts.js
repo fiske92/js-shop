@@ -8,24 +8,18 @@ class RenderProducts extends Abstract {
     }
 
     async renderProducts(url) {
-        const productsObj = await this.getProducts(url);
-        productsObj && await this.singleProduct(productsObj.products);
-        
-        this.select.addEventListener('change', () => {
-            this.sortItems(productsObj.products)
-        })
-    }
-    
-    sortItems(products) {
-        if (this.select.value === 'priceAsc') {
-            products.sort((a, b) => a.price - b.price)
-        } else if (this.select.value === 'priceDesc') {
-            products.sort((a, b) => b.price - a.price)
-        } else if (this.select.value === 'rating') {
-            products.sort((a, b) => b.rating - a.rating)
-        }
+        const productsObj = await this.getData(url);
+        productsObj && this.renderProduct(productsObj.products);
 
-        this.singleProduct(products);
+        this.select.addEventListener('change', () => this.sortItems(productsObj.products));
+    }
+
+    sortItems(products) {
+        if (this.select.value === 'priceAsc') products.sort((a, b) => a.price - b.price)
+        else if (this.select.value === 'priceDesc') products.sort((a, b) => b.price - a.price)
+        else if (this.select.value === 'rating') products.sort((a, b) => b.rating - a.rating)
+
+        this.renderProduct(products);
     }
 }
 

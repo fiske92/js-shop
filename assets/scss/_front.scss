@@ -14,7 +14,6 @@ main {
             }
 
             &__single-product {
-                margin-bottom: 1rem;
                 overflow: hidden;
                 background-color: #fff;
     
@@ -28,7 +27,6 @@ main {
                         top: 0;
                         left: 0;
                         background-color: #ffca2d;
-                        /* padding: 16px; */
                         transform: scale(2) rotate(-45deg) translateY(-31px);
                         width: 60px;
                         display: flex;

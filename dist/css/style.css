@@ -9335,26 +9335,36 @@ ul {
         height: .5px;
         background-color: #ffca2d;
         transition: .3s all; }
-      .navigation nav .navigation__items > li:hover::after {
+      .navigation nav .navigation__items > li:not(.navigation__items__has-child):hover::after {
         width: 100%; }
-    .navigation nav .navigation__items__has-child ul {
-      height: 0;
-      width: fit-content;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      background-color: #002242;
-      overflow: hidden;
-      transition: .3s all;
-      opacity: 0;
-      z-index: 10; }
-      .navigation nav .navigation__items__has-child ul li {
-        padding: 10px; }
-        .navigation nav .navigation__items__has-child ul li:not(:last-child) {
-          border-bottom: 1px solid #ffca2d; }
-    .navigation nav .navigation__items__has-child:hover ul {
-      height: 210px;
-      border: 1px solid #ffca2d;
-      opacity: 1; }
+    .navigation nav .navigation__items__has-child {
+      display: flex;
+      align-items: center; }
+      .navigation nav .navigation__items__has-child::after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        background: url("../../assets/img/arrow.svg") no-repeat center center;
+        display: inline-block; }
+      .navigation nav .navigation__items__has-child ul {
+        height: 0;
+        width: fit-content;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: #002242;
+        overflow: hidden;
+        transition: .3s all;
+        opacity: 0;
+        z-index: 10; }
+        .navigation nav .navigation__items__has-child ul li {
+          padding: 10px 20px; }
+          .navigation nav .navigation__items__has-child ul li:not(:last-child) {
+            border-bottom: 1px solid #ffca2d; }
+      .navigation nav .navigation__items__has-child:hover ul {
+        height: var(--tooltip-height);
+        border: 1px solid #ffca2d;
+        opacity: 1; }
 
 main .products__row {
   display: grid;
@@ -9367,7 +9377,6 @@ main .products__row {
     main .products__row {
       grid-template-columns: repeat(1, 1fr); } }
   main .products__row__single-product {
-    margin-bottom: 1rem;
     overflow: hidden;
     background-color: #fff; }
     main .products__row__single-product > a {
@@ -9379,7 +9388,6 @@ main .products__row {
         top: 0;
         left: 0;
         background-color: #ffca2d;
-        /* padding: 16px; */
         transform: scale(2) rotate(-45deg) translateY(-31px);
         width: 60px;
         display: flex;
